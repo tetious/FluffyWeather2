@@ -42,7 +42,7 @@ L Device:D_Small D1
 U 1 1 5EAA84B3
 P 9200 800
 F 0 "D1" H 9200 1016 50  0000 C CNN
-F 1 "D" H 9200 925 50  0000 C CNN
+F 1 "MBR120VLSFT1G" H 9200 925 50  0000 C CNN
 F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9200 800 50  0001 C CNN
 F 3 "~" H 9200 800 50  0001 C CNN
 	1    9200 800 
@@ -170,7 +170,7 @@ U 1 1 5EABB0EE
 P 8000 3100
 F 0 "J4" V 8100 2900 50  0000 C CNN
 F 1 "BATT" V 8100 3050 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 8000 3100 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8000 3100 50  0001 C CNN
 F 3 "~" H 8000 3100 50  0001 C CNN
 	1    8000 3100
 	0    1    1    0   
@@ -256,7 +256,7 @@ U 1 1 5EAA62A6
 P 9650 800
 F 0 "J1" H 9678 776 50  0000 L CNN
 F 1 "Solar In" H 9678 685 50  0000 L CNN
-F 2 "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical" H 9650 800 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 9650 800 50  0001 C CNN
 F 3 "~" H 9650 800 50  0001 C CNN
 	1    9650 800 
 	1    0    0    -1  
@@ -360,7 +360,7 @@ L power:+6V #PWR018
 U 1 1 5EAF7BBE
 P 8950 800
 F 0 "#PWR018" H 8950 650 50  0001 C CNN
-F 1 "+6V" H 8965 973 50  0000 C CNN
+F 1 "+6V" H 8850 800 50  0000 C CNN
 F 2 "" H 8950 800 50  0001 C CNN
 F 3 "" H 8950 800 50  0001 C CNN
 	1    8950 800 
@@ -832,47 +832,19 @@ $EndComp
 Connection ~ 3600 1550
 Wire Wire Line
 	3600 1550 3725 1550
-$Comp
-L power:GND #PWR01
-U 1 1 5EBBFBF0
-P 3150 1750
-F 0 "#PWR01" H 3150 1500 50  0001 C CNN
-F 1 "GND" H 3155 1577 50  0000 C CNN
-F 2 "" H 3150 1750 50  0001 C CNN
-F 3 "" H 3150 1750 50  0001 C CNN
-	1    3150 1750
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	3750 1750 3600 1750
-Connection ~ 3600 1750
-Wire Wire Line
-	3600 1750 3500 1750
-$Comp
-L Jumper:SolderJumper_2_Open JP1
-U 1 1 5EBC592A
-P 3300 1750
-F 0 "JP1" H 3300 1850 50  0000 C CNN
-F 1 "SolderJumper_2_Open" H 3300 1525 50  0001 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 3300 1750 50  0001 C CNN
-F 3 "~" H 3300 1750 50  0001 C CNN
-	1    3300 1750
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:C_Small C1
 U 1 1 5EBE22FD
 P 3500 1925
 F 0 "C1" H 3385 1879 50  0000 R CNN
-F 1 "1nf" H 3385 1970 50  0000 R CNN
+F 1 "100nf" H 3385 1970 50  0000 R CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3538 1775 50  0001 C CNN
 F 3 "~" H 3500 1925 50  0001 C CNN
 	1    3500 1925
 	1    0    0    1   
 $EndComp
-Connection ~ 3500 1750
-Wire Wire Line
-	3500 1750 3450 1750
 Wire Wire Line
 	3500 1825 3500 1750
 $Comp
@@ -887,16 +859,15 @@ F 3 "" H 3500 2025 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 3750 1950
-NoConn ~ 5750 2050
 $Comp
-L Connector_Generic:Conn_01x05 J2
+L Connector_Generic:Conn_01x06 J2
 U 1 1 5EBF9A7D
-P 5950 1950
-F 0 "J2" H 6030 1992 50  0000 L CNN
-F 1 "UART" H 6030 1901 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 5950 1950 50  0001 C CNN
-F 3 "~" H 5950 1950 50  0001 C CNN
-	1    5950 1950
+P 5950 1850
+F 0 "J2" H 6030 1892 50  0000 L CNN
+F 1 "UART" H 6030 1801 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 5950 1850 50  0001 C CNN
+F 3 "~" H 5950 1850 50  0001 C CNN
+	1    5950 1850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -930,72 +901,19 @@ F 3 "" H 5750 2150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	4950 2550 5750 2550
-$Comp
-L Connector_Generic:Conn_01x04 J3
-U 1 1 5EC22D6C
-P 5950 2450
-F 0 "J3" H 6030 2442 50  0000 L CNN
-F 1 "JTAG" H 6030 2351 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5950 2450 50  0001 C CNN
-F 3 "~" H 5950 2450 50  0001 C CNN
-	1    5950 2450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4950 2350 5750 2350
-Wire Wire Line
-	4950 2450 5750 2450
-Wire Wire Line
-	4950 2650 5750 2650
-Text Label 5100 2350 0    50   ~ 0
-TDI
-Text Label 5100 2450 0    50   ~ 0
-TCK
-Text Label 5100 2550 0    50   ~ 0
-TMS
-Text Label 5100 2650 0    50   ~ 0
-TDO
-$Comp
-L Jumper:SolderJumper_2_Open JP2
-U 1 1 5EC557FA
-P 4950 1500
-F 0 "JP2" H 4950 1600 50  0000 C CNN
-F 1 "SolderJumper_2_Open" H 4950 1275 50  0001 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 4950 1500 50  0001 C CNN
-F 3 "~" H 4950 1500 50  0001 C CNN
-	1    4950 1500
-	0    1    1    0   
-$EndComp
-Wire Wire Line
 	4950 1750 4950 1650
-$Comp
-L power:GND #PWR06
-U 1 1 5EC5CEFF
-P 4950 1350
-F 0 "#PWR06" H 4950 1100 50  0001 C CNN
-F 1 "GND" H 4955 1177 50  0000 C CNN
-F 2 "" H 4950 1350 50  0001 C CNN
-F 3 "" H 4950 1350 50  0001 C CNN
-	1    4950 1350
-	-1   0    0    1   
-$EndComp
 Text Label 4950 1950 0    50   ~ 0
 SCL
-Text Label 5350 2650 0    50   ~ 0
+Text Label 4950 2650 0    50   ~ 0
 SDA
-Text Label 4950 3950 0    50   ~ 0
-CRIT
 Text Label 4950 4050 0    50   ~ 0
+CRIT
+Text Label 4950 3950 0    50   ~ 0
 WARN
 Text Label 4950 3850 0    50   ~ 0
 TC
-Text Label 4950 2150 0    50   ~ 0
-STAT1
 Text Label 4950 3550 0    50   ~ 0
 STAT2
-Text Label 4950 3650 0    50   ~ 0
-PG
 Text Label 4950 3450 0    50   ~ 0
 EX_WIND_DIR
 Text Label 4950 3750 0    50   ~ 0
@@ -1028,7 +946,7 @@ U 1 1 5ECB6C3B
 P 6500 3275
 F 0 "J5" H 6580 3317 50  0000 L CNN
 F 1 "EXT SENSE" H 6580 3226 50  0000 L CNN
-F 2 "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical" H 6500 3275 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 6500 3275 50  0001 C CNN
 F 3 "~" H 6500 3275 50  0001 C CNN
 	1    6500 3275
 	1    0    0    -1  
@@ -1077,4 +995,44 @@ NoConn ~ 3750 3050
 NoConn ~ 3750 2950
 Wire Wire Line
 	9300 800  9450 800 
+NoConn ~ 4950 2550
+NoConn ~ 4950 2450
+NoConn ~ 4950 2350
+Text Notes 5750 6400 0    50   ~ 0
+i2c:1110110
+Text Notes 8700 6350 0    50   ~ 0
+i2c:1000000
+Wire Wire Line
+	3600 1750 3500 1750
+Connection ~ 3600 1750
+Wire Wire Line
+	5750 1650 5150 1650
+$Comp
+L Device:D_Small D2
+U 1 1 5EB2F0FD
+P 5150 1800
+F 0 "D2" V 5050 1900 50  0000 C CNN
+F 1 "D" V 5150 1900 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5150 1800 50  0001 C CNN
+F 3 "~" H 5150 1800 50  0001 C CNN
+	1    5150 1800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4950 1950 5150 1950
+Wire Wire Line
+	5150 1950 5150 1900
+Wire Wire Line
+	5150 1700 5150 1650
+Connection ~ 5150 1650
+Wire Wire Line
+	5150 1650 4950 1650
+Text Label 5750 2050 2    50   ~ 0
+EN
+Text Label 3700 1750 3    50   ~ 0
+EN
+Text Label 4950 2150 0    50   ~ 0
+PG
+Text Label 4950 3650 0    50   ~ 0
+STAT1
 $EndSCHEMATC
