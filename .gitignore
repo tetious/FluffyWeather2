@@ -7,3 +7,4 @@ gerber/*
 *.rpt
 .~lock*
 fp-info-cache
+secure.h
