@@ -10,18 +10,14 @@
 #include "esp_event.h"
 #include "nvs_flash.h"
 
-#if defined(CONFIG_IDF_TARGET_ESP8266)
-#define SDA_GPIO 4
-#define SCL_GPIO 5
-#else
 #define SDA_GPIO 21
 #define SCL_GPIO 22
-#endif
 
-typedef struct test_struct {
-  float temp;
-  float humidity;
-  float pressure;
+typedef struct test_struct
+{
+    float temp;
+    float humidity;
+    float pressure;
 } test_struct;
 
 uint8_t broadcastAddress[] = {0x5C, 0xCF, 0x7F, 0x1B, 0xE0, 0x89};
@@ -30,19 +26,20 @@ static void wifi_init(void)
 {
     // Initialize NVS
     esp_err_t ret = nvs_flash_init();
-    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
-        ESP_ERROR_CHECK( nvs_flash_erase() );
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
+    {
+        ESP_ERROR_CHECK(nvs_flash_erase());
         ret = nvs_flash_init();
     }
-    ESP_ERROR_CHECK( ret );
+    ESP_ERROR_CHECK(ret);
 
     tcpip_adapter_init();
     ESP_ERROR_CHECK(esp_event_loop_create_default());
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-    ESP_ERROR_CHECK( esp_wifi_init(&cfg) );
+    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
     //ESP_ERROR_CHECK( esp_wifi_set_storage(WIFI_STORAGE_RAM) );
-    ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_STA) );
-    ESP_ERROR_CHECK( esp_wifi_start());
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    ESP_ERROR_CHECK(esp_wifi_start());
 }
 
 void bmp280_test()
@@ -71,7 +68,7 @@ void bmp280_test()
         printf("Pressure: %.2f Pa, Temperature: %.2f C", test.pressure, test.temp);
         printf(", Humidity: %.2f\n", test.humidity);
 
-        esp_now_send(broadcastAddress, (uint8_t *) &test, sizeof(test_struct));
+        esp_now_send(broadcastAddress, (uint8_t *)&test, sizeof(test_struct));
     }
 
     esp_deep_sleep(5 * 1000000);
@@ -87,9 +84,9 @@ void app_main()
 
     // 5C:CF:7F:1B:E0:89
     memcpy(peerInfo.peer_addr, broadcastAddress, 6);
-    peerInfo.channel = 0;  
+    peerInfo.channel = 0;
     peerInfo.encrypt = false;
-    
+
     ESP_ERROR_CHECK(esp_now_init());
     ESP_ERROR_CHECK(esp_now_add_peer(&peerInfo));
 
