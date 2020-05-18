@@ -28,6 +28,8 @@ services:
       - influxdb-data:/var/lib/influxdb
   grafana:
     image: grafana/grafana
+    environment: 
+      - GF_AUTH_ANONYMOUS_ENABLED=true
     ports:
       - "3000:3000"
     networks:

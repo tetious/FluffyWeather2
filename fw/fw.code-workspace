@@ -10,5 +10,10 @@
 			"path": "toonyweather"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"*.h": "cpp",
+			"random": "cpp"
+		}
+	}
 }

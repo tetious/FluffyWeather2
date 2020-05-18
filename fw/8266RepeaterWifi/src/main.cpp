@@ -1,17 +1,10 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include "../../secure.h"
-
-typedef struct test_struct
-{
-  float temp;
-  float humidity;
-  float pressure;
-} test_struct;
+#include "../../shared.h"
 
 WiFiClient wifiClient;
 PubSubClient mqttClient(wifiClient);
-char message[100];
 
 void blink(unsigned int time, unsigned int count)
 {
@@ -69,9 +62,8 @@ void loop()
   }
   if (Serial.available())
   {
-    test_struct data;
-    Serial.readBytes((uint8_t *)&data, sizeof(test_struct));
-    //sprintf(message, "{\"temp\": %f, \"humidity\": %f, \"pressure\": %f}", data.temp, data.humidity, data.pressure);
-    mqttClient.publish("test/weather", (const uint8_t *)&data, sizeof(test_struct));
+    data_struct data;
+    Serial.readBytes((uint8_t *)&data, sizeof(data_struct));
+    mqttClient.publish("test/weather", (const uint8_t *)&data, sizeof(data_struct));
   }
 }
