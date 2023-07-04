@@ -13,7 +13,12 @@
 	"settings": {
 		"files.associations": {
 			"*.h": "cpp",
-			"random": "cpp"
+			"random": "cpp",
+			"chrono": "cpp",
+			"condition_variable": "cpp",
+			"ctime": "cpp",
+			"mutex": "cpp",
+			"thread": "cpp"
 		}
 	}
 }

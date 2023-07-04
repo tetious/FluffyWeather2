@@ -1,10 +1,12 @@
 {
     "files.associations": {
+        "*.h": "cpp",
         "bme680.h": "c",
         "stdio.h": "c",
         "task.h": "c",
         "esp_system.h": "c",
         "esp_wifi.h": "c",
-        "nvs_flash.h": "c"
+        "nvs_flash.h": "c",
+        "random": "c"
     }
 }
